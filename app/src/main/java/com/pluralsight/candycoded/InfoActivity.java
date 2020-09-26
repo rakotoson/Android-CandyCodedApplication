@@ -9,8 +9,11 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
+import java.net.URI;
+
 public class InfoActivity extends AppCompatActivity {
     private static final String storeAddress = "geo:0,0?q=618 E South St Orlando, FL 32801";
+    private static final String storePhone = "tel:0123456789";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,4 +44,11 @@ public class InfoActivity extends AppCompatActivity {
     // ***
     // TODO - Task 3 - Launch the Phone Activity
     // ***
+    public void createPhoneIntent(View view) {
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+        Uri phoneURI = Uri.parse(storePhone);
+        phoneIntent.setData(phoneURI);
+
+        startActivity(phoneIntent);
+    }
 }
